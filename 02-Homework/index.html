@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code Quiz</title>
@@ -9,13 +9,19 @@
 </head>
 <body>
     <header>
+        <div id="time-left">Time Left: </div>
+    </header>
+    <section id="start-page">
         <h1>Code Quiz</h1>
         <p id="instructions">Click the start button to begin the quiz. <br> This quiz will be timed, if a question is answered incorrectly, 
             <br> 5 seconds will be subtracted from the clock. <br>
             At the end you will receive a score and may input your initials.
         </p>
         <button id="start-button">Begin</button>
-    </header>
+    </section>
+    <script src="./script.js"></script>
+
+    <div id="question-bank"></div>
 </body>
-<script src="./script.js"></script>
+
 </html>

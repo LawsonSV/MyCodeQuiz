@@ -2,7 +2,7 @@ body {
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-header {
+section {
     position: relative;
     top: 150px;
 }
@@ -13,6 +13,11 @@ h1 {
     align-items: center;
 }
 
+#time-left {
+    position:absolute;
+    right:0px;
+    top:0px;
+}
 
 #instructions {
     display:flex;
