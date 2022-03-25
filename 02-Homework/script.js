@@ -1,17 +1,21 @@
-var startButton = document.getElementById("start-button")
-var startPage = document.querySelector("#start-page")
-var questionBank = document.getElementById("question-bank")
-
-var questions = [
+let startButton = document.getElementById("start-button");
+let startPage = document.querySelector("#start-page");
+let questionOne = document.getElementById("quest-one");
+let qOneWrongs = document.getElementsByClassName("q-one-wrong");
+let qOneRight = document.getElementById("q-one-right");
+let timeText = document.getElementById("time-left");
+let rightOrWrong = document.getElementById("right-or-wrong");
+let timeLeft = 150;
+let questions = [
     {
         question: "Which of the following is an HTML attribute?",
-        answersArr: ["const", "var", "img", "src"],
+        answersArr: ["const", "let", "img", "src"],
         correct: "src"
     },
     {
-        question: "To define a variable in JS we may use the ___ keyword",
-        answersArr: ["header", "var", "style", "function"],
-        correct: "var"
+        question: "To define a letiable in JS we may use the ___ keyword",
+        answersArr: ["header", "let", "style", "function"],
+        correct: "let"
     },
     {
         question: "In CSS we can define colors using their ___ value",
@@ -57,11 +61,40 @@ var questions = [
 
 
 
-startButton.addEventListener("click", function() {
-    //event.preventDefault();
+startButton.addEventListener("click", function(event) {
+    event.preventDefault();
     document.getElementById("start-page").style.display = "none";
-    let questionOne = JSON.stringify(questions[0]);
-    questionBank.append(questionOne)
-
+    document.getElementById("quest-one").style.display = "block";
+    let timerInterval = setInterval(function() {
+        timeText.textContent = "Time Left: " + timeLeft
+        timeLeft--;
+        if (timeLeft === 0) {
+            clearInterval(timerInterval);
+            alert("Game over! Nice try...")
+        }
+    }, 1000)
 });
 
+for (i = 0; i < qOneWrongs.length; i++)
+qOneWrongs[i].addEventListener("click", function() {
+    let qOneText = document.createElement("h3");
+    questionOne.style.display = "none" 
+    qOneText.textContent = "Wrong! 10 seconds lost...";
+    rightOrWrong.append(qOneText);
+    setTimeout(function(){
+        rightOrWrong.style.display = "none"
+   }, 1000);
+
+   timeLeft-=10;
+});
+
+
+qOneRight.addEventListener("click", function() {
+    let qOneText = document.createElement("h3");
+    questionOne.style.display = "none" 
+    qOneText.textContent = "Correct!";
+    rightOrWrong.append(qOneText);
+    setTimeout(function(){
+        rightOrWrong.style.display = "none"
+   }, 1000);
+})
