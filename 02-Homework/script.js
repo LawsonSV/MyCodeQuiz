@@ -2,7 +2,7 @@ let startButton = document.getElementById("start-button");
 let startPage = document.getElementById("start-page");
 let timeText = document.getElementById("time-left");
 let rightOrWrong = document.getElementById("right-or-wrong");
-let timeLeft = 12;
+let timeLeft = 100;
 
 let questionOne = document.getElementById("quest-one");
 let questionTwo = document.getElementById("quest-two");
