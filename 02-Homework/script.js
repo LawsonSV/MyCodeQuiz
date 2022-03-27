@@ -3,6 +3,9 @@ let startPage = document.getElementById("start-page");
 let timeText = document.getElementById("time-left");
 let rightOrWrong = document.getElementById("right-or-wrong");
 let timeLeft = 100;
+let count = 0;
+let scoreEl = document.getElementById("count")
+let endPage = document.getElementById("end-page");
 
 let questionOne = document.getElementById("quest-one");
 let questionTwo = document.getElementById("quest-two");
@@ -38,11 +41,12 @@ let qEightRight = document.getElementById("q-eight-right");
 let qNineRight = document.getElementById("q-nine-right");
 let qTenRight = document.getElementById("q-ten-right");
 
-startButton.addEventListener("click", function(event) {
+startButton.addEventListener("click", function (event) {
     event.preventDefault();
     startPage.style.display = "none";
     questionOne.style.display = "block";
-    let timerInterval = setInterval(function() {
+    timeLeft = 100
+    var timerInterval = setInterval(function () {
         timeText.textContent = "Time Left: " + timeLeft
         timeLeft--;
         if (timeLeft === 0) {
@@ -57,241 +61,275 @@ startButton.addEventListener("click", function(event) {
 });
 
 for (i = 0; i < qOneWrongs.length; i++)
-qOneWrongs[i].addEventListener("click", function() {
-    let winLoseText = document.createElement("h3");
-    questionOne.style.display = "none";
-    questionTwo.style.display = "block";
-    winLoseText.textContent = "Wrong! 10 seconds lost...";
-    rightOrWrong.append(winLoseText);
-    setTimeout(function(){
-        winLoseText.remove()
-   }, 1000);
-   timeLeft-=10;
-});
+    qOneWrongs[i].addEventListener("click", function () {
+        let winLoseText = document.createElement("h3");
+        questionOne.style.display = "none";
+        questionTwo.style.display = "block";
+        winLoseText.textContent = "Wrong! 10 seconds lost...";
+        rightOrWrong.append(winLoseText);
+        setTimeout(function () {
+            winLoseText.remove()
+        }, 1000);
+        timeLeft -= 10;
+    });
 
-qOneRight.addEventListener("click", function() {
+qOneRight.addEventListener("click", function () {
     let winLoseText = document.createElement("h3");
     questionOne.style.display = "none";
     questionTwo.style.display = "block";
     winLoseText.textContent = "Correct!";
+    count++;
+    scoreEl.textContent = "Score: " + count;
     rightOrWrong.append(winLoseText);
-    setTimeout(function(){
+    setTimeout(function () {
         winLoseText.remove()
-   }, 1000);
+    }, 1000);
 });
 
 for (i = 0; i < qTwoWrongs.length; i++)
-qTwoWrongs[i].addEventListener("click", function() {
-    let winLoseText = document.createElement("h3");
-    questionTwo.style.display = "none";
-    questionThree.style.display = "block";
-    winLoseText.textContent = "Wrong! 10 seconds lost...";
-    rightOrWrong.append(winLoseText);
-    setTimeout(function(){
-        winLoseText.remove();
-   }, 1000);
-   timeLeft-=10;
-});
+    qTwoWrongs[i].addEventListener("click", function () {
+        let winLoseText = document.createElement("h3");
+        questionTwo.style.display = "none";
+        questionThree.style.display = "block";
+        winLoseText.textContent = "Wrong! 10 seconds lost...";
+        rightOrWrong.append(winLoseText);
+        setTimeout(function () {
+            winLoseText.remove();
+        }, 1000);
+        timeLeft -= 10;
+    });
 
-qTwoRight.addEventListener("click", function() {
+qTwoRight.addEventListener("click", function () {
     let winLoseText = document.createElement("h3");
     questionTwo.style.display = "none";
     questionThree.style.display = "block";
     winLoseText.textContent = "Correct!";
+    count++;
+    scoreEl.textContent = "Score: " + count;
     rightOrWrong.append(winLoseText);
-    setTimeout(function(){
+    setTimeout(function () {
         winLoseText.remove()
-   }, 1000);
+    }, 1000);
 });
 
 for (i = 0; i < qThreeWrongs.length; i++)
-qThreeWrongs[i].addEventListener("click", function() {
-    let winLoseText = document.createElement("h3");
-    questionThree.style.display = "none";
-    questionFour.style.display = "block";
-    winLoseText.textContent = "Wrong! 10 seconds lost...";
-    rightOrWrong.append(winLoseText);
-    setTimeout(function(){
-        winLoseText.remove();
-   }, 1000);
-   timeLeft-=10;
-});
+    qThreeWrongs[i].addEventListener("click", function () {
+        let winLoseText = document.createElement("h3");
+        questionThree.style.display = "none";
+        questionFour.style.display = "block";
+        winLoseText.textContent = "Wrong! 10 seconds lost...";
+        rightOrWrong.append(winLoseText);
+        setTimeout(function () {
+            winLoseText.remove();
+        }, 1000);
+        timeLeft -= 10;
+    });
 
-qThreeRight.addEventListener("click", function() {
+qThreeRight.addEventListener("click", function () {
     let winLoseText = document.createElement("h3");
     questionThree.style.display = "none";
     questionFour.style.display = "block";
     winLoseText.textContent = "Correct!";
+    count++;
+    scoreEl.textContent = "Score: " + count;
     rightOrWrong.append(winLoseText);
-    setTimeout(function(){
+    setTimeout(function () {
         winLoseText.remove()
-   }, 1000);
+    }, 1000);
 });
 
 for (i = 0; i < qFourWrongs.length; i++)
-qFourWrongs[i].addEventListener("click", function() {
-    let winLoseText = document.createElement("h3");
-    questionFour.style.display = "none";
-    questionFive.style.display = "block";
-    winLoseText.textContent = "Wrong! 10 seconds lost...";
-    rightOrWrong.append(winLoseText);
-    setTimeout(function(){
-        winLoseText.remove();
-   }, 1000);
-   timeLeft-=10;
-});
+    qFourWrongs[i].addEventListener("click", function () {
+        let winLoseText = document.createElement("h3");
+        questionFour.style.display = "none";
+        questionFive.style.display = "block";
+        winLoseText.textContent = "Wrong! 10 seconds lost...";
+        rightOrWrong.append(winLoseText);
+        setTimeout(function () {
+            winLoseText.remove();
+        }, 1000);
+        timeLeft -= 10;
+    });
 
-qFourRight.addEventListener("click", function() {
+qFourRight.addEventListener("click", function () {
     let winLoseText = document.createElement("h3");
     questionFour.style.display = "none";
     questionFive.style.display = "block";
     winLoseText.textContent = "Correct!";
+    count++;
+    scoreEl.textContent = "Score: " + count;
     rightOrWrong.append(winLoseText);
-    setTimeout(function(){
+    setTimeout(function () {
         winLoseText.remove()
-   }, 1000);
+    }, 1000);
 });
 
 for (i = 0; i < qFiveWrongs.length; i++)
-qFiveWrongs[i].addEventListener("click", function() {
-    let winLoseText = document.createElement("h3");
-    questionFive.style.display = "none";
-    questionSix.style.display = "block";
-    winLoseText.textContent = "Wrong! 10 seconds lost...";
-    rightOrWrong.append(winLoseText);
-    setTimeout(function(){
-        winLoseText.remove();
-   }, 1000);
-   timeLeft-=10;
-});
+    qFiveWrongs[i].addEventListener("click", function () {
+        let winLoseText = document.createElement("h3");
+        questionFive.style.display = "none";
+        questionSix.style.display = "block";
+        winLoseText.textContent = "Wrong! 10 seconds lost...";
+        rightOrWrong.append(winLoseText);
+        setTimeout(function () {
+            winLoseText.remove();
+        }, 1000);
+        timeLeft -= 10;
+    });
 
-qFiveRight.addEventListener("click", function() {
+qFiveRight.addEventListener("click", function () {
     let winLoseText = document.createElement("h3");
     questionFive.style.display = "none";
     questionSix.style.display = "block";
     winLoseText.textContent = "Correct!";
+    count++;
+    scoreEl.textContent = "Score: " + count;
     rightOrWrong.append(winLoseText);
-    setTimeout(function(){
+    setTimeout(function () {
         winLoseText.remove()
-   }, 1000);
+    }, 1000);
 });
 
 for (i = 0; i < qSixWrongs.length; i++)
-qSixWrongs[i].addEventListener("click", function() {
-    let winLoseText = document.createElement("h3");
-    questionSix.style.display = "none";
-    questionSeven.style.display = "block";
-    winLoseText.textContent = "Wrong! 10 seconds lost...";
-    rightOrWrong.append(winLoseText);
-    setTimeout(function(){
-        winLoseText.remove();
-   }, 1000);
-   timeLeft-=10;
-});
+    qSixWrongs[i].addEventListener("click", function () {
+        let winLoseText = document.createElement("h3");
+        questionSix.style.display = "none";
+        questionSeven.style.display = "block";
+        winLoseText.textContent = "Wrong! 10 seconds lost...";
+        rightOrWrong.append(winLoseText);
+        setTimeout(function () {
+            winLoseText.remove();
+        }, 1000);
+        timeLeft -= 10;
+    });
 
-qSixRight.addEventListener("click", function() {
+qSixRight.addEventListener("click", function () {
     let winLoseText = document.createElement("h3");
     questionSix.style.display = "none";
     questionSeven.style.display = "block";
     winLoseText.textContent = "Correct!";
+    count++;
+    scoreEl.textContent = "Score: " + count;
     rightOrWrong.append(winLoseText);
-    setTimeout(function(){
+    setTimeout(function () {
         winLoseText.remove()
-   }, 1000);
+    }, 1000);
 });
 
 for (i = 0; i < qSevenWrongs.length; i++)
-qSevenWrongs[i].addEventListener("click", function() {
-    let winLoseText = document.createElement("h3");
-    questionSeven.style.display = "none";
-    questionEight.style.display = "block";
-    winLoseText.textContent = "Wrong! 10 seconds lost...";
-    rightOrWrong.append(winLoseText);
-    setTimeout(function(){
-        winLoseText.remove();
-   }, 1000);
-   timeLeft-=10;
-});
+    qSevenWrongs[i].addEventListener("click", function () {
+        let winLoseText = document.createElement("h3");
+        questionSeven.style.display = "none";
+        questionEight.style.display = "block";
+        winLoseText.textContent = "Wrong! 10 seconds lost...";
+        rightOrWrong.append(winLoseText);
+        setTimeout(function () {
+            winLoseText.remove();
+        }, 1000);
+        timeLeft -= 10;
+    });
 
-qSevenRight.addEventListener("click", function() {
+qSevenRight.addEventListener("click", function () {
     let winLoseText = document.createElement("h3");
     questionSeven.style.display = "none";
     questionEight.style.display = "block";
     winLoseText.textContent = "Correct!";
+    count++;
+    scoreEl.textContent = "Score: " + count;
     rightOrWrong.append(winLoseText);
-    setTimeout(function(){
+    setTimeout(function () {
         winLoseText.remove()
-   }, 1000);
+    }, 1000);
 });
 
 for (i = 0; i < qEightWrongs.length; i++)
-qEightWrongs[i].addEventListener("click", function() {
-    let winLoseText = document.createElement("h3");
-    questionEight.style.display = "none";
-    questionNine.style.display = "block";
-    winLoseText.textContent = "Wrong! 10 seconds lost...";
-    rightOrWrong.append(winLoseText);
-    setTimeout(function(){
-        winLoseText.remove();
-   }, 1000);
-   timeLeft-=10;
-});
+    qEightWrongs[i].addEventListener("click", function () {
+        let winLoseText = document.createElement("h3");
+        questionEight.style.display = "none";
+        questionNine.style.display = "block";
+        winLoseText.textContent = "Wrong! 10 seconds lost...";
+        rightOrWrong.append(winLoseText);
+        setTimeout(function () {
+            winLoseText.remove();
+        }, 1000);
+        timeLeft -= 10;
+    });
 
-qEightRight.addEventListener("click", function() {
+qEightRight.addEventListener("click", function () {
     let winLoseText = document.createElement("h3");
     questionEight.style.display = "none";
     questionNine.style.display = "block";
     winLoseText.textContent = "Correct!";
+    count++;
+    scoreEl.textContent = "Score: " + count;
     rightOrWrong.append(winLoseText);
-    setTimeout(function(){
+    setTimeout(function () {
         winLoseText.remove()
-   }, 1000);
+    }, 1000);
 });
 
 for (i = 0; i < qNineWrongs.length; i++)
-qNineWrongs[i].addEventListener("click", function() {
-    let winLoseText = document.createElement("h3");
-    questionNine.style.display = "none";
-    questionTen.style.display = "block";
-    winLoseText.textContent = "Wrong! 10 seconds lost...";
-    rightOrWrong.append(winLoseText);
-    setTimeout(function(){
-        winLoseText.remove();
-   }, 1000);
-   timeLeft-=10;
-});
+    qNineWrongs[i].addEventListener("click", function () {
+        let winLoseText = document.createElement("h3");
+        questionNine.style.display = "none";
+        questionTen.style.display = "block";
+        winLoseText.textContent = "Wrong! 10 seconds lost...";
+        rightOrWrong.append(winLoseText);
+        setTimeout(function () {
+            winLoseText.remove();
+        }, 1000);
+        timeLeft -= 10;
+    });
 
-qNineRight.addEventListener("click", function() {
+qNineRight.addEventListener("click", function () {
     let winLoseText = document.createElement("h3");
     questionNine.style.display = "none";
     questionTen.style.display = "block";
     winLoseText.textContent = "Correct!";
+    count++;
+    scoreEl.textContent = "Score: " + count;
     rightOrWrong.append(winLoseText);
-    setTimeout(function(){
+    setTimeout(function () {
         winLoseText.remove()
-   }, 1000);
+    }, 1000);
 });
 
 for (i = 0; i < qTenWrongs.length; i++)
-qTenWrongs[i].addEventListener("click", function() {
+    qTenWrongs[i].addEventListener("click", function () {
+        let winLoseText = document.createElement("h3");
+        questionTen.style.display = "none";
+        endPage.style.display = "block";
+        winLoseText.textContent = "Wrong! 10 seconds lost...";
+        rightOrWrong.append(winLoseText);
+        setTimeout(function () {
+            winLoseText.remove();
+        }, 1000);
+        timeLeft -= 10;
+        endScoreFunc()
+        clearInterval(timerInterval)
+        timeText.textContent = ""
+    });
+
+qTenRight.addEventListener("click", function () {
     let winLoseText = document.createElement("h3");
     questionTen.style.display = "none";
-    startPage.style.display = "block";
-    winLoseText.textContent = "Wrong! 10 seconds lost...";
+    endPage.style.display = "block";
+    winLoseText.textContent = "Correct!";
+    count++;
+    scoreEl.textContent = "Score: " + count;
     rightOrWrong.append(winLoseText);
-    setTimeout(function(){
-        winLoseText.remove();
-   }, 1000);
-   timeLeft-=10;
+    setTimeout(function () {
+        winLoseText.remove()
+    }, 1000);
+    endScoreFunc()
+    clearInterval(timerInterval)
+    timeText.textContent = ""
 });
 
-qTenRight.addEventListener("click", function() {
-    let winLoseText = document.createElement("h3");
-    questionTen.style.display = "none";
-    startPage.style.display = "block";
-    winLoseText.textContent = "Correct!";
-    rightOrWrong.append(winLoseText);
-    setTimeout(function(){
-        winLoseText.remove()
-   }, 1000);
-});
+function endScoreFunc() {
+    let scorePrompt = prompt("Type your initials top save high score")
+    let endScore = document.createElement("h1");
+    endScore.textContent =  scorePrompt + ": " + count;
+    endPage.append(endScore);
+    
+}
