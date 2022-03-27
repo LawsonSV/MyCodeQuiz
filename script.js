@@ -327,7 +327,7 @@ qTenRight.addEventListener("click", function () {
 });
 
 function endScoreFunc() {
-    let scorePrompt = prompt("Type your initials top save high score")
+    let scorePrompt = prompt("Type your initials to save your score")
     let endScore = document.createElement("h1");
     endScore.textContent =  scorePrompt + ": " + count;
     endPage.append(endScore);
