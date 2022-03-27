@@ -306,8 +306,12 @@ for (i = 0; i < qTenWrongs.length; i++)
         }, 1000);
         timeLeft -= 10;
         endScoreFunc()
-        clearInterval(timerInterval)
-        timeText.textContent = ""
+        setInterval(function () {
+            timeLeft = 100
+            timeText.textContent = "Time Left: " + timeLeft
+            
+        }, 1000)
+        timeLeft = 100
     });
 
 qTenRight.addEventListener("click", function () {
@@ -322,8 +326,13 @@ qTenRight.addEventListener("click", function () {
         winLoseText.remove()
     }, 1000);
     endScoreFunc()
-    clearInterval(timerInterval)
-    timeText.textContent = ""
+    setInterval(function () {
+        timeLeft = 100
+        timeText.textContent = "Time Left: " + timeLeft
+        
+    }, 1000)
+    
+    timeLeft = 100
 });
 
 function endScoreFunc() {
